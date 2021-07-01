@@ -1,5 +1,5 @@
 #pragma once
-#include <b
+#include <fstream>
 class Ehdr
 {
 };
@@ -11,8 +11,12 @@ class Phdr
 };
 class Elf
 {
+private:
+  std::ifstream st;
+
 public:
   Elf(const char fname[])
+      : st(fname, std::ios::binary)
   {
   }
 };
