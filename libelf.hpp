@@ -1,8 +1,5 @@
 #pragma once
 #include <fstream>
-class Ehdr
-{
-};
 class Shdr
 {
 };
@@ -11,6 +8,11 @@ class Phdr
 };
 class Elf
 {
+private:
+  class Ehdr
+  {
+  };
+
 private:
   std::ifstream st;
 
