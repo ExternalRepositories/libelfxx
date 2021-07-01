@@ -15,6 +15,7 @@ private:
 
 private:
   std::ifstream st;
+  Ehdr ehdr;
 
 public:
   Elf(const char fname[])
