@@ -5,7 +5,13 @@
 class BinaryReader
 {
   std::ifstream st;
-  int bits;
+
+public:
+  enum Bits
+  {
+    CLASS32,
+    CLASS64
+  } bits;
   enum Endian
   {
     big,
