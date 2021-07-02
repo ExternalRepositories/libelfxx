@@ -7,10 +7,10 @@ class BinaryReader
   int bits;
 
 public:
-  BinaryReader(const char fname[]);
+  BinaryReader(const char[]);
 
   template <typename T, size_t n>
-  void read_chars(T dest[n])
+  void read_chars(T (&dest)[n])
   {
     st.read((char *)dest, n);
   }
