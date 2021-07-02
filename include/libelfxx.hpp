@@ -1,6 +1,9 @@
 #pragma once
 #include <fstream>
 #include "libelfxx/ehdr.hpp"
+#include <memory>
+class BinaryReader;
+
 class Shdr
 {
 };
@@ -10,7 +13,7 @@ class Phdr
 class Elf
 {
 private:
-  std::ifstream st;
+  std::shared_ptr<BinaryReader> st;
   Ehdr ehdr;
 
 public:
