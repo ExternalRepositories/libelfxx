@@ -15,9 +15,9 @@ class BinaryReader
 public:
   BinaryReader(std::string);
 
-  template <typename T, size_t n>
-  void read_chars(T (&dest)[n])
+  template <typename T, size_t N>
+  void read_chars(T (&dest)[N])
   {
-    st.read((char *)dest, n);
+    st.read((char *)dest, N);
   }
 };
