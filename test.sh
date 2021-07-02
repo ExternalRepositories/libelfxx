@@ -1,3 +1,3 @@
 #!/bin/bash
-g++ *.cpp -I. -o test
+g++ test.cpp src/*.cpp -Iinclude -o test
 ./test
