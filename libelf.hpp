@@ -18,8 +18,5 @@ private:
   Ehdr ehdr;
 
 public:
-  Elf(const char fname[])
-      : st(fname, std::ios::binary)
-  {
-  }
+  Elf(const char fname[]);
 };
