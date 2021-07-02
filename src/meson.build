@@ -1,4 +1,4 @@
-lib=shared_library(
+elfxx_lib=shared_library(
   'elfxx',
   [
     'libelfxx.cpp'
@@ -6,3 +6,8 @@ lib=shared_library(
   include_directories: inc,
   install : true
 )
+elfxx = declare_dependency(
+  link_with : elfxx_lib,
+  include_directories : inc
+)
+
