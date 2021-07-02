@@ -1,7 +1,8 @@
 elfxx_lib=shared_library(
   'elfxx',
   [
-    'libelfxx.cpp'
+    'libelfxx.cpp',
+    'binary_reader.cpp'
   ],
   include_directories: inc,
   install : true
