@@ -4,6 +4,7 @@ project(
   license : 'MIT'
 )
 
+subdir('include')
 subdir('src')
 
 import('pkgconfig').generate(
