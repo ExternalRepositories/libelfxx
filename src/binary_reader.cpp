@@ -1,6 +1,6 @@
 #include <libelfxx/binary_reader.hpp>
 
-BinaryReader::BinaryReader(const char fname[])
+BinaryReader::BinaryReader(std::string fname)
     : st(fname, std::ios::binary)
 {
 }

@@ -1,5 +1,6 @@
 #pragma once
 #include <fstream>
+#include <string>
 
 class BinaryReader
 {
@@ -7,7 +8,7 @@ class BinaryReader
   int bits;
 
 public:
-  BinaryReader(const char[]);
+  BinaryReader(std::string);
 
   template <typename T, size_t n>
   void read_chars(T (&dest)[n])
