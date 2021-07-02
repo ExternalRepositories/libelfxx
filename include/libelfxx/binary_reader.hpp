@@ -6,6 +6,11 @@ class BinaryReader
 {
   std::ifstream st;
   int bits;
+  enum Endian
+  {
+    big,
+    little
+  } endian;
 
 public:
   BinaryReader(std::string);
