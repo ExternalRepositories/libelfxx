@@ -47,3 +47,18 @@ uint64_t BinaryReader::read_word()
     assert(false);
   }
 }
+uint32_t BinaryReader::read_half()
+{
+  if (bits == CLASS32)
+  {
+    return read_int(2);
+  }
+  else if (bits == CLASS64)
+  {
+    return read_int(4);
+  }
+  else
+  {
+    assert(false);
+  }
+}
