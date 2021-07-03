@@ -2,7 +2,7 @@
 #include <assert.h>
 
 BinaryReader::BinaryReader(std::string fname)
-    : st(fname, std::ios::binary), bits(Bits::CLASS32), endian(big)
+    : st(fname, std::ios::binary), bits(ClassType::class32), endian(Endian::Big)
 {
 }
 uint64_t BinaryReader::read_int(int size)
@@ -14,7 +14,7 @@ uint64_t BinaryReader::read_int(int size)
   st.read(bytes, size);
 
   uint64_t ret = 0;
-  if (endian == big)
+  if (endian == Endian::Big)
   {
     for (int i = 0; i < size; i++)
     {
@@ -22,7 +22,7 @@ uint64_t BinaryReader::read_int(int size)
       ret |= bytes[i];
     }
   }
-  else if (endian == little)
+  else if (endian == Endian::Little)
   {
     for (int i = size - 1; i >= 0; i--)
     {
@@ -34,11 +34,11 @@ uint64_t BinaryReader::read_int(int size)
 }
 uint64_t BinaryReader::read_word()
 {
-  if (bits == CLASS32)
+  if (bits == ClassType::class32)
   {
     return read_int(4);
   }
-  else if (bits == CLASS64)
+  else if (bits == ClassType::class64)
   {
     return read_int(8);
   }
@@ -49,11 +49,11 @@ uint64_t BinaryReader::read_word()
 }
 uint32_t BinaryReader::read_half()
 {
-  if (bits == CLASS32)
+  if (bits == ClassType::class32)
   {
     return read_int(2);
   }
-  else if (bits == CLASS64)
+  else if (bits == ClassType::class64)
   {
     return read_int(4);
   }

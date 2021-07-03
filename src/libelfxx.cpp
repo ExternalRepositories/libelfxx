@@ -24,14 +24,14 @@ void Elf::read_ehdr()
     st->skip(6); // padding
 
     if (ehdr.ident.classtype == ClassType::class32)
-        st->bits = BinaryReader::Bits::CLASS32;
+        st->bits = ClassType::class32;
     else
-        st->bits = BinaryReader::Bits::CLASS64;
+        st->bits = ClassType::class64;
 
     if (ehdr.ident.endian == Endian::Big)
-        st->endian = BinaryReader::Endian::big;
+        st->endian = Endian::Big;
     else
-        st->endian = BinaryReader::Endian::little;
+        st->endian = Endian::Little;
 
     ehdr.e_type = st->read_half();
     ehdr.e_machine = st->read_half();

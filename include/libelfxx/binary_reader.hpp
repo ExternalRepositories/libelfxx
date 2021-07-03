@@ -1,6 +1,7 @@
 #pragma once
 #include <fstream>
 #include <string>
+#include "sys_types.hpp"
 
 class BinaryReader
 {
@@ -8,16 +9,8 @@ public:
   std::ifstream st;
 
 public:
-  enum Bits
-  {
-    CLASS32,
-    CLASS64
-  } bits;
-  enum Endian
-  {
-    big,
-    little
-  } endian;
+  ClassType bits;
+  Endian endian;
 
 public:
   BinaryReader(std::string);
