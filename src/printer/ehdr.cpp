@@ -36,4 +36,5 @@ std::ostream &operator<<(std::ostream &st, const Ehdr &hdr)
   st << "  shstrndx : " << (uint)hdr.e_shstrndx << std::endl;
 
   st.flags(flags);
+  return st;
 }
