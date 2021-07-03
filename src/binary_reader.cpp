@@ -2,7 +2,7 @@
 #include <assert.h>
 
 BinaryReader::BinaryReader(std::string fname)
-    : st(fname, std::ios::binary)
+    : st(fname, std::ios::binary), bits(Bits::CLASS32), endian(big)
 {
 }
 uint64_t BinaryReader::read_int(int size)
