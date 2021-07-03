@@ -14,10 +14,10 @@ void Elf::read_ehdr()
     {
         //TODO: warning
     }
-    ehdr.ident_class = st->read_int(1);
-    ehdr.ident_endian = st->read_int(1);
-    ehdr.ident_version = st->read_int(1);
-    ehdr.ident_abi = st->read_int(2);
-    ehdr.ident_abiver = st->read_int(1);
+    ehdr.ident.classtype = st->read_int(1);
+    ehdr.ident.endian = st->read_int(1);
+    ehdr.ident.version = st->read_int(1);
+    ehdr.ident.abi = st->read_int(2);
+    ehdr.ident.abiver = st->read_int(1);
     st->skip(6); // padding
 }

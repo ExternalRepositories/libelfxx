@@ -4,11 +4,14 @@
 
 struct Ehdr
 {
-  uint8_t ident_class;
-  uint8_t ident_endian;
-  uint8_t ident_version;
-  uint8_t ident_abiver;
-  uint16_t ident_abi;
+  struct Ident
+  {
+    uint8_t classtype;
+    uint8_t endian;
+    uint8_t version;
+    uint8_t abiver;
+    uint16_t abi;
+  } ident;
 
   uint e_type;
   uint e_machine;
