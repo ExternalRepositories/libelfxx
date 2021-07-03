@@ -10,8 +10,8 @@ uint64_t BinaryReader::read_int(int size)
   assert(0 < size);
   assert(size <= 8);
 
-  auto bytes = new char[size];
-  st.read(bytes, size);
+  auto bytes = new uint8_t[size];
+  st.read((char *)bytes, size);
 
   uint64_t ret = 0;
   if (endian == Endian::Big)
