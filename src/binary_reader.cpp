@@ -12,22 +12,22 @@ uint64_t BinaryReader::read_int(int size)
 
   auto bytes = new char[size];
   st.read(bytes, size);
-
+  printf("%d\n", bytes[0]);
   uint64_t ret = 0;
   if (endian == big)
   {
     for (int i = 0; i < size; i++)
     {
-      ret |= bytes[i];
       ret <<= 8;
+      ret |= bytes[i];
     }
   }
   else if (endian == little)
   {
     for (int i = size - 1; i >= 0; i--)
     {
-      ret |= bytes[i];
       ret <<= 8;
+      ret |= bytes[i];
     }
   }
   return ret;
