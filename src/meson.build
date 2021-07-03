@@ -1,3 +1,4 @@
+subdir('printer')
 elfxx_lib=shared_library(
   'elfxx',
   [
@@ -5,7 +6,8 @@ elfxx_lib=shared_library(
     'binary_reader.cpp'
   ],
   include_directories: inc,
-  install : true
+  install : true,
+  dependencies:[printer]
 )
 elfxx = declare_dependency(
   link_with : elfxx_lib,
