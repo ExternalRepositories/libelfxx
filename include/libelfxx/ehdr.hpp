@@ -12,7 +12,11 @@ struct Ehdr
       class32 = 1,
       class64 = 2
     } classtype;
-    uint8_t endian;
+    enum Endian
+    {
+      Little = 1,
+      Big = 1
+    } endian;
     uint8_t version;
     uint8_t abiver;
     uint16_t abi;
