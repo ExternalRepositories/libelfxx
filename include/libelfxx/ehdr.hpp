@@ -17,7 +17,6 @@ struct Ehdr
       Little = 1,
       Big = 1
     } endian;
-    uint8_t version;
     uint8_t abiver;
     uint16_t abi;
   } ident;
