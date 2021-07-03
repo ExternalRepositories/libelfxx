@@ -16,12 +16,23 @@ void Elf::read_ehdr()
     {
         //TODO: warning
     }
-    ehdr.ident.classtype = st->read_int(1) == 1 ? Ehdr::Ident::ClassType::class32 : Ehdr::Ident::ClassType::class64;
-    ehdr.ident.endian = st->read_int(1) == 1 ? Ehdr::Ident::Endian::Little : Ehdr::Ident::Endian::Big;
+    ehdr.ident.classtype = st->read_int(1) == 1 ? ClassType::class32 : ClassType::class64;
+    ehdr.ident.endian = st->read_int(1) == 1 ? Endian::Little : Endian::Big;
     assert(st->read_int(1) == 1); // version
     ehdr.ident.abi = st->read_int(2);
     ehdr.ident.abiver = st->read_int(1);
     st->skip(6); // padding
+
+    if (ehdr.ident.classtype == ClassType::class32)
+        st->bits = BinaryReader::Bits::CLASS32;
+    else
+        st->bits = BinaryReader::Bits::CLASS64;
+
+    if (ehdr.ident.endian == Endian::Big)
+        st->endian = BinaryReader::Endian::big;
+    else
+        st->endian = BinaryReader::Endian::little;
+
     ehdr.e_type = st->read_half();
     ehdr.e_machine = st->read_half();
     ehdr.e_version = st->read_word();

@@ -2,21 +2,14 @@
 
 #include <cstdint>
 #include <ostream>
+#include "sys_types.hpp"
 
 struct Ehdr
 {
   struct Ident
   {
-    enum ClassType
-    {
-      class32 = 1,
-      class64 = 2
-    } classtype;
-    enum Endian
-    {
-      Little = 1,
-      Big = 1
-    } endian;
+    ClassType classtype;
+    Endian endian;
     uint8_t abiver;
     uint16_t abi;
   } ident;
