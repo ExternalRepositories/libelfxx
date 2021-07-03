@@ -4,6 +4,7 @@
 
 class BinaryReader
 {
+public:
   std::ifstream st;
 
 public:
