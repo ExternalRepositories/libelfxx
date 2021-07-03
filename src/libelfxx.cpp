@@ -18,7 +18,7 @@ void Elf::read_ehdr()
     }
     ehdr.ident.classtype = st->read_int(1) == 1 ? Ehdr::Ident::ClassType::class32 : Ehdr::Ident::ClassType::class64;
     ehdr.ident.endian = st->read_int(1) == 1 ? Ehdr::Ident::Endian::Little : Ehdr::Ident::Endian::Big;
-    assert(st->read_int(1) == 1);
+    assert(st->read_int(1) == 1); // version
     ehdr.ident.abi = st->read_int(2);
     ehdr.ident.abiver = st->read_int(1);
     st->skip(6); // padding
