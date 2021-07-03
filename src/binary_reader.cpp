@@ -62,3 +62,7 @@ uint32_t BinaryReader::read_half()
     assert(false);
   }
 }
+void BinaryReader::skip(int size)
+{
+  st.ignore(size);
+}

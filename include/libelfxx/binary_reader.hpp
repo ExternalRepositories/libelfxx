@@ -31,4 +31,5 @@ public:
   uint64_t read_int(int size);
   uint64_t read_word();
   uint32_t read_half();
+  void skip(int size);
 };
