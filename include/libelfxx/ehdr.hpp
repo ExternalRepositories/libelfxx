@@ -1,6 +1,7 @@
 #pragma once
 
 #include <cstdint>
+#include <ostream>
 
 struct Ehdr
 {
@@ -27,3 +28,4 @@ struct Ehdr
   uint e_shnum;
   uint e_shstrndx;
 };
+std::ostream &operator<<(std::ostream &, const Ehdr &);
