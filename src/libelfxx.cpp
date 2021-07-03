@@ -22,5 +22,18 @@ void Elf::read_ehdr()
     ehdr.ident.abi = st->read_int(2);
     ehdr.ident.abiver = st->read_int(1);
     st->skip(6); // padding
+    ehdr.e_type = st->read_half();
+    ehdr.e_machine = st->read_half();
+    ehdr.e_version = st->read_word();
+    ehdr.e_entry = st->read_word();
+    ehdr.e_phoff = st->read_word();
+    ehdr.e_shoff = st->read_word();
+    ehdr.e_flags = st->read_word();
+    ehdr.e_ehsize = st->read_half();
+    ehdr.e_phentsize = st->read_half();
+    ehdr.e_phnum = st->read_half();
+    ehdr.e_shentsize = st->read_half();
+    ehdr.e_shnum = st->read_half();
+    ehdr.e_shstrndx = st->read_half();
     std::cout << ehdr;
 }
