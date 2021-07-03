@@ -26,4 +26,6 @@ public:
   {
     st.read((char *)dest, N);
   }
+
+  uint64_t read_int(int size);
 };
