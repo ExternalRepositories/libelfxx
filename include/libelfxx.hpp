@@ -16,6 +16,8 @@ private:
   std::shared_ptr<BinaryReader> st;
   Ehdr ehdr;
 
+  void read_ehdr();
+
 public:
   Elf(const char fname[]);
 };
