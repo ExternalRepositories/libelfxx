@@ -34,33 +34,11 @@ uint64_t BinaryReader::read_int(int size)
 }
 uint64_t BinaryReader::read_word()
 {
-  if (bits == ClassType::class32)
-  {
-    return read_int(4);
-  }
-  else if (bits == ClassType::class64)
-  {
-    return read_int(8);
-  }
-  else
-  {
-    assert(false);
-  }
+  return read_int(4);
 }
 uint32_t BinaryReader::read_half()
 {
-  if (bits == ClassType::class32)
-  {
-    return read_int(2);
-  }
-  else if (bits == ClassType::class64)
-  {
-    return read_int(4);
-  }
-  else
-  {
-    assert(false);
-  }
+  return read_int(2);
 }
 void BinaryReader::skip(int size)
 {
