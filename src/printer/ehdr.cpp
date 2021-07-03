@@ -1,5 +1,29 @@
 #include <libelfxx/ehdr.hpp>
+#include <iomanip>
 std::ostream &operator<<(std::ostream &st, const Ehdr &hdr)
 {
-  st << "EHDR";
+  auto flags = st.flags();
+
+  st.fill('0');
+  st << std::hex;
+
+  st << "Elf header" << std::endl;
+  st << "  ELF Identifier" << std::endl;
+  st << "    abi        : " << std::setw(4) << hdr.ident.abi << std::endl;
+  st << "    abi version: " << std::setw(2) << (int)hdr.ident.abiver << std::endl;
+  st << std::setw(8);
+  st.fill('0');
+  st << "  Section header informations" << std::endl;
+  st << "    offset   : " << (uint)hdr.e_shoff << std::endl;
+  st << "    entrysize: " << (uint)hdr.e_shentsize << std::endl;
+  st << "    hdrcount : " << hdr.e_shnum << std::endl;
+  st << "  Segment header informations" << std::endl;
+  st << "    offset   : " << (uint)hdr.e_phoff << std::endl;
+  st << "    entrysize: " << (uint)hdr.e_phentsize << std::endl;
+  st << "    hdrcount : " << hdr.e_phnum << std::endl;
+  st << "  entry    : " << (uint)hdr.e_entry << std::endl;
+  st << "  flags    : " << (uint)hdr.e_flags << std::endl;
+  st << "  ehsize   : " << (uint)hdr.e_ehsize << std::endl;
+
+  st.flags(flags);
 }
