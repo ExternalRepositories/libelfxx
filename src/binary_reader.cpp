@@ -12,7 +12,7 @@ uint64_t BinaryReader::read_int(int size)
 
   auto bytes = new char[size];
   st.read(bytes, size);
-  printf("%d\n", bytes[0]);
+
   uint64_t ret = 0;
   if (endian == big)
   {
