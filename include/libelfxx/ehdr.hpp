@@ -7,7 +7,11 @@ struct Ehdr
 {
   struct Ident
   {
-    uint8_t classtype;
+    enum ClassType
+    {
+      class32 = 1,
+      class64 = 2
+    } classtype;
     uint8_t endian;
     uint8_t version;
     uint8_t abiver;
