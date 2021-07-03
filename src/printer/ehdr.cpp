@@ -11,6 +11,14 @@ std::ostream &operator<<(std::ostream &st, const Ehdr &hdr)
   st << "  ELF Identifier" << std::endl;
   st << "    abi        : " << std::setw(4) << hdr.ident.abi << std::endl;
   st << "    abi version: " << std::setw(2) << (int)hdr.ident.abiver << std::endl;
+  if (hdr.ident.endian == Ehdr::Ident::Endian::Big)
+    st << "    Endian     : Big" << std::endl;
+  else
+    st << "    Endian     : Little" << std::endl;
+  if (hdr.ident.classtype == Ehdr::Ident::ClassType::class32)
+    st << "    class      : 32bit" << std::endl;
+  else
+    st << "    class      : 64bit" << std::endl;
   st << std::setw(8);
   st.fill('0');
   st << "  Section header informations" << std::endl;
