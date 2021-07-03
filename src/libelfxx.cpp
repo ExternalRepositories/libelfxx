@@ -16,12 +16,13 @@ void Elf::read_ehdr()
     {
         //TODO: warning
     }
-    ehdr.ident.classtype = st->read_int(1) == 1 ? ClassType::class32 : ClassType::class64;
-    ehdr.ident.endian = st->read_int(1) == 1 ? Endian::Little : Endian::Big;
+    ehdr.ident.classtype = (ClassType)st->read_int(1);
+    ehdr.ident.endian = (Endian)st->read_int(1);
     assert(st->read_int(1) == 1); // version
     ehdr.ident.abi = st->read_int(2);
     ehdr.ident.abiver = st->read_int(1);
     st->skip(6); // padding
+    std::cout << st->st.tellg() << std::endl;
 
     st->bits = ehdr.ident.classtype;
     st->endian = ehdr.ident.endian;
