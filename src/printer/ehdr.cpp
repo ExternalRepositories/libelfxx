@@ -30,6 +30,9 @@ std::ostream &operator<<(std::ostream &st, const Ehdr &hdr)
   st << "    offset   : " << (uint)hdr.e_phoff << std::endl;
   st << "    entrysize: " << (uint)hdr.e_phentsize << std::endl;
   st << "    hdrcount : " << hdr.e_phnum << std::endl;
+  st << "  type     : " << (uint)hdr.e_type << std::endl;
+  st << "  machine  : " << (uint)hdr.e_machine << std::endl;
+  st << "  version  : " << (uint)hdr.e_version << std::endl;
   st << "  entry    : " << (uint)hdr.e_entry << std::endl;
   st << "  flags    : " << (uint)hdr.e_flags << std::endl;
   st << "  ehsize   : " << (uint)hdr.e_ehsize << std::endl;
