@@ -1,9 +1,1 @@
-{
-  "saveAndRun": {
-    "commands": [
-      {
-        "cmd": "./test.sh"
-      }
-    ]
-  }
-}
+{}
