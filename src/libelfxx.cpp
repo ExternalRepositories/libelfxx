@@ -30,9 +30,9 @@ void Elf::read_ehdr()
     ehdr.e_type = st->read_half();
     ehdr.e_machine = st->read_half();
     ehdr.e_version = st->read_word();
-    ehdr.e_entry = st->read_word();
-    ehdr.e_phoff = st->read_word();
-    ehdr.e_shoff = st->read_word();
+    ehdr.e_entry = st->read_plat_word();
+    ehdr.e_phoff = st->read_plat_word();
+    ehdr.e_shoff = st->read_plat_word();
     ehdr.e_flags = st->read_word();
     ehdr.e_ehsize = st->read_half();
     ehdr.e_phentsize = st->read_half();
