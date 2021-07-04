@@ -1,3 +1,4 @@
 #!/bin/bash
-g++ *.cpp -I. -o test
-./test
+cd build
+ninja
+./libtest
