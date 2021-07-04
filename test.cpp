@@ -1,4 +1,4 @@
-#include <libelfxx.hpp>
+#include <libelfxx/libelfxx.hpp>
 int main(int argc, char const *argv[])
 {
   Elf elf(argv[0]);
